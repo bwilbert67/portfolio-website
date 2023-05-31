@@ -21,6 +21,7 @@ export default {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 a {
     text-decoration: underline;
