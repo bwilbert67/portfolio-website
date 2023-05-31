@@ -1,5 +1,5 @@
 <template>
- <h1>Yo</h1> 
+ <h1>Yerr</h1> 
 </template>
 
 <script>
