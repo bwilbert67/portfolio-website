@@ -1,15 +1,10 @@
 <template>
-<h1>Yo</h1>
+ <h1>Yo</h1> 
 </template>
 
 <script>
-
-
 export default {
-  name: 'App',
-  components: {
 
-  }
 }
 </script>
 
