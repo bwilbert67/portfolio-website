@@ -47,11 +47,12 @@ export default {
 
 <style scoped>
 #chat-container {
-  width: 400px;
-  height: 500px;
+    width: 100%;
+  height: 500px; /* Adjust the height as needed */
   border: 1px solid #ccc;
   overflow-y: scroll;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .message {
@@ -67,7 +68,7 @@ export default {
 }
 
 #chat-input {
-  width: 100%;
+   width: 100%;
   padding: 10px;
   box-sizing: border-box;
 }
