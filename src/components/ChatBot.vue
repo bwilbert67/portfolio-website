@@ -14,6 +14,7 @@
 
 <script>
 import chatGPT from "../services/OpenAi";
+
 export default {
   data() {
     return {
@@ -25,41 +26,40 @@ export default {
     addUserMessage(message) {
       this.messages.push({ id: Date.now(), text: message, type: 'user-message' });
     },
-    addBotMessage(message) {
-      this.messages.push({ id: Date.now(), text: message, type: 'bot-message' });
+    addBotMessage(response) {
+      const botResponse = response;
+      this.messages.push({ id: Date.now(), text: botResponse, type: 'bot-message' });
     },
-    processUserInput() {
-  const userInput = this.userInput.trim();
-  
-  if (userInput) {
-    this.addUserMessage(userInput);
-    
-    // Get the most recent user message
-    const mostRecentUserMessage = this.messages.find(
-      (message) => message.type === 'user-message'
-    );
-    
-    // Access the most recent user message's text
-    const mostRecentUserMessageText = mostRecentUserMessage.text;
-    
-    // Send the most recent user message to an API or perform any other desired action
-    // Example API call:
-    // sendUserMessageToAPI(mostRecentUserMessageText);
-    
-    // Placeholder bot response
-    this.addBotMessage(chatGPT.response(mostRecentUserMessageText));
-    
-    this.userInput = '';
-  }
-}
-
+    async processUserInput() {
+      const userInput = this.userInput.trim();
+      
+      if (userInput) {
+        this.addUserMessage(userInput);
+        
+        // Get the most recent user message
+        const mostRecentUserMessage = this.messages[this.messages.length - 1];
+        
+        // Access the most recent user message's text
+        const mostRecentUserMessageText = mostRecentUserMessage.text;
+        
+        try {
+          // Send the most recent user message to the OpenAI API
+          const response = await chatGPT.response(mostRecentUserMessageText);
+          this.addBotMessage(response);
+        } catch (error) {
+          console.error(error);
+        }
+        
+        this.userInput = '';
+      }
+    }
   }
 };
 </script>
 
 <style scoped>
 #chat-container {
-    width: 100%;
+  width: 100%;
   height: 500px; /* Adjust the height as needed */
   border: 1px solid #ccc;
   overflow-y: scroll;
@@ -80,7 +80,7 @@ export default {
 }
 
 #chat-input {
-   width: 100%;
+  width: 100%;
   padding: 10px;
   box-sizing: border-box;
 }
