@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import chatGPT from "../services/OpenAi";
 export default {
   data() {
     return {
@@ -28,19 +29,30 @@ export default {
       this.messages.push({ id: Date.now(), text: message, type: 'bot-message' });
     },
     processUserInput() {
-      const userInput = this.userInput.trim();
-      
-      if (userInput) {
-        this.addUserMessage(userInput);
-        // Add your chatbot logic here to generate a response
-        // For example, you can use an API call or predefined responses
-        
-        // Placeholder bot response
-        this.addBotMessage('This is a placeholder bot response.');
-        
-        this.userInput = '';
-      }
-    }
+  const userInput = this.userInput.trim();
+  
+  if (userInput) {
+    this.addUserMessage(userInput);
+    
+    // Get the most recent user message
+    const mostRecentUserMessage = this.messages.find(
+      (message) => message.type === 'user-message'
+    );
+    
+    // Access the most recent user message's text
+    const mostRecentUserMessageText = mostRecentUserMessage.text;
+    
+    // Send the most recent user message to an API or perform any other desired action
+    // Example API call:
+    // sendUserMessageToAPI(mostRecentUserMessageText);
+    
+    // Placeholder bot response
+    this.addBotMessage(chatGPT.response(mostRecentUserMessageText));
+    
+    this.userInput = '';
+  }
+}
+
   }
 };
 </script>
