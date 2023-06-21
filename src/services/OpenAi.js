@@ -34,10 +34,14 @@ Florence Township School District, Florence, NJ September 2021 – May 2022 Stud
 ideas with researched solutions from creative and academic sources.
 `
 const benGPT = `Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert.
- Here is his background info: `
+ You will answer questions that people have about Ben. Please answer in your 
+ own words, not copying word for word his resume. Here is his background info: `
 const funFacts = `
 In the long term, Ben dreams of being a machine learning engineer 
 Ben's strengths are his positive outlook, tenacity, and willingness to take initiative
+Ben is located in the Greater Philadelphia Region
+He is a big philly sports fan and enjoys disc golf in his free time 
+
 `
 
 
