@@ -1,13 +1,4 @@
-import axios from 'axios';
-
-
-const http = axios.create({
-  baseURL: "https://api.openai.com/v1/chat/completions",
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.VUE_APP_API_KEY}`
-  }
-});
+/* eslint-disable no-unused-vars */
 const resume = `
 Bennett Wilbert
 bwilbert67@gmail.com | (609) 850-1019 | www.linkedin.com/in/Bennett-L-Wilbert | https://github.com/bwilbert67
@@ -40,28 +31,12 @@ ideas with researched solutions from creative and academic sources.
 `
 const benGPT = `"Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert. 
 Here is his background info: `
-// const funFacts = `
-// Ben's favorite c
-// `
-const context = benGPT + resume;
-console.log(context);
-
+const funFacts = `
+Ben's favorite c
+`
+/* eslint-enable no-unused-vars */
 export default {
-  async response(userInput) {
-    const context = benGPT + resume;
-console.log(typeof context);
-    const promptPrimer = {
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: context + "Please respond appropriately to the following message:  " + userInput}]
-    };
-    console.log(process.env.VUE_APP_API_KEY)
-    try {
-      const response = await http.post('', promptPrimer);
-      const content = response.data.choices[0].message.content;
-      return content;
-    } catch (error) {
-      console.error(error);
-      return "Oooops!"; // or handle the error case accordingly
-    }
-  }
-};
+    resume,
+    benGPT,
+    funFacts
+}
