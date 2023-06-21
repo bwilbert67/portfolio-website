@@ -33,8 +33,8 @@ Florence Township School District, Florence, NJ September 2021 – May 2022 Stud
 ● Developed materials and implemented lesson plans for 3 different classes, 5 days a week. Combined unique
 ideas with researched solutions from creative and academic sources.
 `
-const benGPT = `"Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert. 
-Here is his background info: `
+const benGPT = `Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert.
+ Here is his background info: `
 const funFacts = `
 In the long term, Ben dreams of being a machine learning engineer 
 Ben's strengths are his positive outlook, tenacity, and willingness to take initiative
