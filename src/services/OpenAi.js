@@ -14,6 +14,7 @@ export default {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert. He is a Java Developer with 1 year of experience. Please respond appropriately to the following message:  " + userInput}]
     };
+    console.log(process.env.VUE_APP_API_KEY)
     try {
       const response = await http.post('', promptPrimer);
       const content = response.data.choices[0].message.content;
