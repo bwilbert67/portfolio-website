@@ -35,11 +35,10 @@ export default {
 }
 
 .right {
-  flex: 1;
+  flex: 3;
 }
 
 .left img {
-  border-radius: 50%;
   max-width: 100%;
   height: auto;
   margin-bottom: 20px;
@@ -54,14 +53,14 @@ p {
 
 #chat-container {
   width: 100%;
-  height: 500px; /* Adjust the height as needed */
+  height: 500px; 
   border: 1px solid #008000;
   border-radius: 10px;
   overflow-y: scroll;
   padding: 10px;
   box-sizing: border-box;
   background-color: #e6ffe6;
-}
+}  
 
 .message {
   margin-bottom: 10px;
