@@ -27,15 +27,16 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin: 40px;
 }
 
 .left {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 60px;
 }
 
 .right {
-  flex: 3;
+  flex: 2.5;
 }
 
 .left img {
@@ -49,41 +50,5 @@ p {
   line-height: 1.5;
 }
 
-/* ChatBot Component Styles */
-
-#chat-container {
-  width: 100%;
-  height: 500px; 
-  border: 1px solid #008000;
-  border-radius: 10px;
-  overflow-y: scroll;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #e6ffe6;
-}  
-
-.message {
-  margin-bottom: 10px;
-  border-radius: 5px;
-  padding: 8px;
-}
-
-.user-message {
-  background-color: #d4f5d4;
-}
-
-.bot-message {
-  background-color: #f2f2f2;
-}
-
-#chat-input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  margin-top: 10px;
-  border: 1px solid #008000;
-  background-color: #fff;
-}
 
 </style>
