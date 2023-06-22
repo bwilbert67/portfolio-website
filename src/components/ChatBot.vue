@@ -87,6 +87,7 @@ export default {
   gap: 10px;
   justify-content: center;
   padding: 10px;
+  width: 100%;
 }
 
 .card {
@@ -122,12 +123,14 @@ export default {
 #input-container {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 #chat-input {
   flex: 1;
   padding: 10px;
   box-sizing: border-box;
+  
 }
 
 #submit-button {
