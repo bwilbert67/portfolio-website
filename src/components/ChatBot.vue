@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'centered': !showChat }">
     <div v-if="!showChat" id="suggested-questions">
       <div class="card" v-for="question in suggestedQuestions" :key="question.id" @click="submitQuestion(question.text)">
         {{ question.text }}
@@ -11,7 +11,10 @@
         {{ message.text }}
       </div>
     </div>
-<input type="text" id="chat-input" v-model="userInput" placeholder="Type your message..." autofocus @keyup.enter="processUserInput(userInput)" />
+    <div id="input-container">
+      <input type="text" id="chat-input" v-model="userInput" placeholder="Type your message..." autofocus @keyup.enter="processUserInput(userInput)" />
+      <button id="submit-button" @click="processUserInput(userInput)">Submit</button>
+    </div>
   </div>
 </template>
 
@@ -22,47 +25,46 @@ export default {
   data() {
     return {
       messages: [],
-      userInput: '',
+      userInput: "",
       showChat: false,
       suggestedQuestions: [
-        { id: 1, text: 'Example Question 1' },
-        { id: 2, text: 'Example Question 2' },
-        { id: 3, text: 'Example Question 3' },
-        { id: 4, text: 'Example Question 4' },
-        { id: 5, text: 'Example Question 5' },
-        { id: 6, text: 'Example Question 6' }
+        { id: 1, text: "Example Question 1" },
+        { id: 2, text: "Example Question 2" },
+        { id: 3, text: "Example Question 3" },
+        { id: 4, text: "Example Question 4" },
+        { id: 5, text: "Example Question 5" },
+        { id: 6, text: "Example Question 6" }
       ]
     };
   },
   methods: {
     addUserMessage(message) {
-      this.messages.push({ id: Date.now(), text: message, type: 'user-message' });
+      this.messages.push({ id: Date.now(), text: message, type: "user-message" });
     },
     addBotMessage(response) {
       const botResponse = response;
-      this.messages.push({ id: Date.now(), text: botResponse, type: 'bot-message' });
+      this.messages.push({ id: Date.now(), text: botResponse, type: "bot-message" });
     },
-   async processUserInput(question) {
-  const userInput = question ? question : this.userInput;
+    async processUserInput(question) {
+      const userInput = question ? question : this.userInput;
 
-  if (userInput) {
-    this.showChat = true;
-    this.addUserMessage(userInput);
+      if (userInput) {
+        this.showChat = true;
+        this.addUserMessage(userInput);
 
-    try {
-      const response = await chatGPT.response(userInput);
-      this.addBotMessage(response);
-    } catch (error) {
-      console.error(error);
+        try {
+          const response = await chatGPT.response(userInput);
+          this.addBotMessage(response);
+        } catch (error) {
+          console.error(error);
+        }
+
+        this.userInput = "";
+      }
+    },
+    submitQuestion(question) {
+      this.processUserInput(question);
     }
-
-    this.userInput = '';
-  }
-},
-   submitQuestion(question) {
-    this.processUserInput(question);
-}
-
   }
 };
 </script>
@@ -72,18 +74,25 @@ export default {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
 }
 
 #suggested-questions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   justify-content: center;
   padding: 10px;
 }
 
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f2f2f2;
   padding: 10px;
   border-radius: 4px;
@@ -110,9 +119,27 @@ export default {
   background-color: #f2f2f2;
 }
 
+#input-container {
+  display: flex;
+  align-items: center;
+}
+
 #chat-input {
-  width: 100%;
+  flex: 1;
   padding: 10px;
   box-sizing: border-box;
 }
+
+#submit-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 </style>
+
+
+
