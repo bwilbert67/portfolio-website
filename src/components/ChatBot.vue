@@ -1,5 +1,10 @@
 <template>
   <div id="app" :class="{ 'centered': !showChat }">
+    <div v-if="!showChat" id="image-container">
+      <img src="../assets/images/bot.png" alt="Image 1" class="image">
+      <img src="../assets/images/bubble.webp" alt="Image 2" class="image">
+    </div>
+
     <div v-if="!showChat" id="suggested-questions">
       <div class="card" v-for="question in suggestedQuestions" :key="question.id" @click="submitQuestion(question.text)">
         {{ question.text }}
@@ -17,6 +22,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import chatGPT from "../services/OpenAi";
@@ -70,6 +76,17 @@ export default {
 </script>
 
 <style scoped>
+#image-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.image {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
 #app {
   height: 100vh;
   display: flex;
