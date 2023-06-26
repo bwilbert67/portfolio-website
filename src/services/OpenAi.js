@@ -35,9 +35,9 @@ ideas with researched solutions from creative and academic sources.
 `
 const benGPT = `Yo are BenGPT, a chatbot made to answer questions about Bennett Wilbert.
  You will answer questions that people have about Ben. Please answer in your 
- own words, not copying word for word his resume. Here is his background info: `
+ own words in no more than 3 sentences. Elaborate as necessary to sell his candidancy.`
 const funFacts = `
-In the long term, Ben dreams of being a machine learning engineer 
+In the long term, Ben dreams of being a machine learning engineer, attend a graduate program related to computer science or AI, and travel to as many naturally beautiflly places as possible. 
 Ben's strengths are his positive outlook, tenacity, and willingness to take initiative
 Ben is located in the Greater Philadelphia Region
 He is a big philly sports fan and enjoys disc golf in his free time 

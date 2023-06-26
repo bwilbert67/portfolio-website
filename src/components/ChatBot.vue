@@ -28,12 +28,12 @@ export default {
       userInput: "",
       showChat: false,
       suggestedQuestions: [
-        { id: 1, text: "Example Question 1" },
-        { id: 2, text: "Example Question 2" },
-        { id: 3, text: "Example Question 3" },
-        { id: 4, text: "Example Question 4" },
-        { id: 5, text: "Example Question 5" },
-        { id: 6, text: "Example Question 6" }
+        { id: 1, text: "What technical skills does Ben posses?" },
+        { id: 2, text: "Where is Ben located?" },
+        { id: 3, text: "Tell me a fun fact about Ben." },
+        { id: 4, text: "How did Ben become a software engineer?" },
+        { id: 5, text: "What are Ben's long term goals?" },
+        { id: 6, text: "What are Ben's strengths?" }
       ]
     };
   },
@@ -98,6 +98,7 @@ export default {
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
 }
 
 #chat-container {
