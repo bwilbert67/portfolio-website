@@ -162,12 +162,16 @@ export default {
   flex: 1;
   padding: 10px;
   box-sizing: border-box;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 #submit-button {
   padding: 10px 20px;
   margin-left: 10px;
-  background-color: #743E0E;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #0F4A68;
   color: #FEFAE0;
   border: none;
   border-radius: 4px;
