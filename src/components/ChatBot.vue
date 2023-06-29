@@ -1,8 +1,10 @@
 <template>
   <div id="app" :class="{ 'centered': !showChat }">
+    <h1>BenGPT</h1>
     <div v-if="!showChat" id="image-container">
-      <img src="../assets/images/bot.png" alt="Image 1" class="image">
-      <img src="../assets/images/bubble.webp" alt="Image 2" class="image">
+      <div id="image-grid">
+        <img src="../assets/images/bot.png" alt="Chatbot" class="bot-image">
+      </div>
     </div>
 
     <div v-if="!showChat" id="suggested-questions">
@@ -22,7 +24,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 import chatGPT from "../services/OpenAi";
@@ -77,16 +78,22 @@ export default {
 
 <style scoped>
 #image-container {
-  display: flex;
-  justify-content: space-around;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.image {
-  width: 200px;
-  height: auto;
-  margin-bottom: 20px;
+#image-grid {
+  position: relative;
 }
+
+.bot-image {
+  width: 300px;
+  height: auto;
+}
+
 #app {
   height: 100vh;
   display: flex;
@@ -148,7 +155,6 @@ export default {
   flex: 1;
   padding: 10px;
   box-sizing: border-box;
-  
 }
 
 #submit-button {
@@ -161,6 +167,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
-
-
