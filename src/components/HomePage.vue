@@ -2,10 +2,10 @@
   <div class="container">
     <div class="left">
       <img src="../assets/images/me.jpg" alt="A picture of Ben in a suit and tie">
-      <p>
-        Introducing Bennett Wilbert, the master of software sorcery and the sultan of code comedy! With a keyboard as his wand and a terminal as his stage, Bennett weaves lines of code into hilarious tales of technological triumph. His software skills are so sharp, they could slice through bugs like a hot knife through butter, leaving programmers in fits of laughter and amazement.
-        When Bennett enters a room, you can hear the sound of binary laughter echoing through the corridors. He can debug a program with a single glance, making bugs run for cover like scared little creatures. His coding style is like a well-rehearsed stand-up routine, with punchlines that make even the most stoic developers crack a smile.
-      </p>
+      <h2>
+        Hi, my name is Bennett Wilbert and welcome to my portfolio page! 
+      </h2>
+      <h2>Got any questions? Ask my AI bot, BenGPT => </h2>
     </div>
     <div class="right">
       <ChatBot></ChatBot>
@@ -37,6 +37,7 @@ export default {
 
 .right {
   flex: 2.5;
+  background-color: #CFB86D;
 }
 
 .left img {
@@ -49,6 +50,8 @@ p {
   text-align: justify;
   line-height: 1.5;
 }
-
+h2{
+  color: white;
+}
 
 </style>

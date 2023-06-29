@@ -18,7 +18,9 @@ export default {
 <style>
 body{
 cursor: url("./assets/images/cursor.cur"), auto;
+background-color: #0F4A68;
 }
+
 .mouse-fix{
   cursor: url("./assets/images/cursor.cur"), auto;
 }

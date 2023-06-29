@@ -33,13 +33,14 @@ export default {
     return {
       messages: [],
       userInput: "",
+      chatApiCall: "",
       showChat: false,
       suggestedQuestions: [
-        { id: 1, text: "What technical skills does Ben posses?" },
+        { id: 1, text: "What technical skills does Ben possess?" },
         { id: 2, text: "Where is Ben located?" },
         { id: 3, text: "Tell me a fun fact about Ben." },
         { id: 4, text: "How did Ben become a software engineer?" },
-        { id: 5, text: "What are Ben's long term goals?" },
+        { id: 5, text: "What are Ben's long-term goals?" },
         { id: 6, text: "What are Ben's strengths?" }
       ]
     };
@@ -54,6 +55,7 @@ export default {
     },
     async processUserInput(question) {
       const userInput = question ? question : this.userInput;
+      this.userInput = "";
 
       if (userInput) {
         this.showChat = true;
@@ -65,8 +67,6 @@ export default {
         } catch (error) {
           console.error(error);
         }
-
-        this.userInput = "";
       }
     },
     submitQuestion(question) {
@@ -95,9 +95,11 @@ export default {
 }
 
 #app {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #CFB86D;
+  color: #FEFAE0;
 }
 
 .centered {
@@ -118,16 +120,19 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #0F4A68;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
+  color: #FEFAE0;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #chat-container {
   flex-grow: 1;
-  border: 1px solid #ccc;
+  border: 1px solid #743E0E;
   overflow-y: scroll;
   padding: 10px;
   box-sizing: border-box;
@@ -138,11 +143,13 @@ export default {
 }
 
 .user-message {
-  background-color: #e6e6e6;
+  background-color: #DDA15E;
+  color: #606C38;
 }
 
 .bot-message {
-  background-color: #f2f2f2;
+  background-color: #FEFAE0;
+  color: #606C38;
 }
 
 #input-container {
@@ -160,8 +167,8 @@ export default {
 #submit-button {
   padding: 10px 20px;
   margin-left: 10px;
-  background-color: #4caf50;
-  color: #fff;
+  background-color: #743E0E;
+  color: #FEFAE0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
